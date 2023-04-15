@@ -1,0 +1,61 @@
+/* 
+CSS utility classes의 집합 (text style을 위한), 다수의 컴포넌트 사이에서 재사용 가능한,을 만들었다.
+
+이런 유틸리티 클래스들은 앱내에서 재사용 가능하다.
+심지어는, global.css에서도 사용 가능하다.
+
+유틸리티 클래스는, 한 method 사용 접근법이 아닌, CSS 선택자들을 작성하는 접근법을 참고한다.
+*/
+
+.heading2Xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingLg {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.headingMd {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.borderCircle {
+  border-radius: 9999px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+}
+
+.lightText {
+  color: #666;
+}

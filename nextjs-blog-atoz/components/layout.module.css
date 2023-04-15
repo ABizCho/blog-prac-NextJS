@@ -1,0 +1,29 @@
+/* 
+  Css모듈을 쓰기 위해, CSS 파일 이름을 Name.module.css.로 지어야 한다.
+  이와 같이 설정한, css 모듈을 컴포넌트에 className으로 주게되면, 렌더링 된 해당 컴포넌트에 유니크한 이름이 부여되며 css모듈이 적용된다. 즉, 클래스네임 충돌이 발생하지 않는다.
+
+  또한 next.js의 코드 분할 특징은 CSS모듈에서도 마찬가지로 작동하여,
+  각 페이지를 위해 로드되는 css의 양을 최소화시켜준다.
+
+  즉, CSS 모듈은 컴포넌트 수준에서 스타일을 SCOPE한다는 것이 장점이다.
+
+  CSS모듈은 빌드 시, 자바스크립트 번들로부터 추출되어 
+  Next.js에 의해 자동적으로 로드되는 .css파일을 만들어낸다.
+
+  */
+
+.contaienr {
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
