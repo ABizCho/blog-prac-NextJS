@@ -1,5 +1,5 @@
 ---
-title: 'Pre-rendering의 두가지 형태'
+title: 'pre-rendering'
 date: '2023-04-15'
 ---
 

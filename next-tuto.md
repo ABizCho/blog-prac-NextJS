@@ -151,6 +151,79 @@ export async function getStaticProps() {
 
 - Note : dev mode에선, 빌드시가 아닌 각 요청마다 getStaticProps가 실행된다.
 
-...`pages/posts/pre-rendering.md`에 이어지는 Static generation with data 사용법 작성했어~ 참고!
+...`pages/posts/pre-rendering.md`에 이어지는 Static generation with data 사용법 작성했슴~ 참고
 <br>
 
+## 4. Dynamic Routes 
+
+1. `getStaticPaths`를 사용해, `dynamic routes`를 가진 페이지들을 어떻게 정적으로 생성하는가.
+
+2. 각 블로그 포스트를 위한 데이터를 fetch하기 위한 `getStaticProps`를 어떻게 작성하는가
+
+3. remark를 사용해, 마크다운을 어떻게 렌더링하는가
+
+4. date strings를 어떻게 예쁘게 출력하는가
+
+5. `dynamic routes`를 이용해, 어떻게 페이지를 링크하는가
+
+6. `dynamic routes`에 관한 기타 유용한 정보
+
+
+<br><br>
+
+### **3+. Page Path가 External Data에 의존하는 경우**
+
+각 `페이지 경로`가 외부 데이터에 의존하는 경우를 알아보자.
+
+Next.js는 external data에 의존하는 paths를 가진 페이지를 정적 생성하는 것을 허용한다.
+
+이건 Next.js에서 `dynamic URLs`를 가능토록 한다.
+
+<img src="./mdsrc/pagePath-dependsOn-externalData.png">
+
+process: 빌드 -> fetch -> path format을 fetchedData.children 을 활용하도록 하여 정적 생성
+
+<br>
+
+각 마크다운이 `/posts/<id>` 경로를 가지도록 하고싶다.
+   - `/posts/ssg-ssr`
+   - `/posts/pre-rendering`
+
+<br>
+
+1. `pages/posts` 하위에 `[id].js`라는 이름의 페이지를 만든다.
+
+   - Next.js의 `dynamic routes`는 `[`, `]`로 페이지를 감싸며 지정한다.
+
+2. 다이나믹 라우트를 적용시키는 page 파일에는 총 세가지 요소가 필요하다.
+
+   - 페이지를 렌더링할 컴포넌트
+
+   - id를 위한 가능한 값의 배열을 반환하는 getStaticPaths
+
+   - 포스트가 id를 가질 수 있도록 필요한 데이터를 fetch하는 getStaticProps
+
+```js
+// /pages/posts/[id].js
+export default function Post() {
+  return <Layout>...</Layout>;
+}
+
+export async function getStaticPaths() {}
+
+export async function getStaticProps({ params }) {}
+```
+
+...더 자세한 적용사항 및 구현은 `pages/posts/[id].js`, `lib/posts.js`파일 참고
+
+### **3+ . remark 라이브러리를 사용해, 마크다운 컨텐츠를 렌더링하자.
+
+1. `npm install remark remark-html`
+
+2. 이 때, remark를 비동기로 사용하기 위해, 관련된 `getPostData`, `getStaticProps` 함수 등을 비동기 처리 해준다 using `async / await`
+
+3. Post 컴포넌트 내에 remark를 사용해 가공된 마크다운 파일을 렌더링 할 <div>태그를 추가하고, `dangerouslySetInnerHtml`이라는 prop에 이를 전달하여 컨텐츠 내용을 렌더링하도록 한다.
+
+<br>
+
+#### 이후 내용은 대부분 코드에 녹여내겠음! 튜토 작성하느라 시간 다간다...

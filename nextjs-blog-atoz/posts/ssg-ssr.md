@@ -1,5 +1,5 @@
 ---
-title: 'Static Generation과 Server-side Rendering 선택 기준'
+title: 'ssg-ssr'
 date: '2023-04-16'
 ---
 
