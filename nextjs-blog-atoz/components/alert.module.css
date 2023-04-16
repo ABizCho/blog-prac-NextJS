@@ -1,0 +1,8 @@
+/* alert에서 clsx를 통해 쉽게 타입 토글 */
+
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}

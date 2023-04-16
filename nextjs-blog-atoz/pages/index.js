@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
+import Alert from "../components/alert";
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
           대해 궁금하시면 <a href="https://github.com/ABizCho">horizD 깃허브</a>{" "}
           방문해주세요!
         </p>
+        <Alert type="success">clsx를 사용해 success 스타일링</Alert>
+        <Alert type="error">clsx를 사용해 error 스타일링</Alert>
       </section>
     </Layout>
   );
